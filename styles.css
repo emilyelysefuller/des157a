@@ -1,0 +1,20 @@
+/* guts from google fonts*/ 
+.grand-hotel-regular {
+  font-family: "Grand Hotel", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.glass-antiqua-regular {
+  font-family: "Glass Antiqua", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+/*end of guts*/ 
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-width: 900px;
+}
