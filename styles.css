@@ -28,6 +28,9 @@ body {
 }
 
 #banner {
+    position: relative;
+    overflow: visible;
+
     text-align: center;
     padding: 30px 20px 20px;
 }
@@ -48,6 +51,77 @@ body {
     line-height: 2.5em;
 }
 
+.leaf {
+    position: absolute;
+    height: auto;
+}
+
+.leaf-left {
+    transform-origin: top center;
+    animation: swayLeft 3s ease-in-out infinite alternate;
+}
+
+.leaf-right {
+    transform-origin: top center;
+    animation: swayRight 3.5s ease-in-out infinite alternate;
+}
+
+.leaf:hover {
+    animation: rustle 0.5s ease-in-out;
+}
+
+/*I would like to note that i did have an AI (ChatGBT) help me with the following keyframes, the rest (positioning) was a mix of trial and error and my own knowlege.*/ 
+
+@keyframes rustle {
+    0%   { transform: rotate(0deg) scale(1); }
+    25%  { transform: rotate(-3deg) scale(1.02); }
+    50%  { transform: rotate(2deg) scale(1.01); }
+    75%  { transform: rotate(-2deg) scale(1.02); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+.leaf1 {
+    top: -40px;
+    left: 20px;
+    width: 180px;
+}
+
+.vine1 {
+    top: -10px;
+    left: 250px;
+    width: 140px;
+}
+
+.leaf2 {
+    top: -30px;
+    right: 20px;
+    width: 160px;
+}
+
+.vine2 {
+    top: -10px;
+    right: 250px;
+    width: 140px;
+}
+
+@keyframes swayLeft {
+    from {
+        transform: rotate(-3deg);
+    }
+    to {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes swayRight {
+    from {
+        transform: rotate(2deg);
+    }
+    to {
+        transform: rotate(-2deg);
+    }
+}
+
 main {
     display: flex;
     justify-content: center;
@@ -62,6 +136,12 @@ main section {
     border-radius: 18px;
     padding: 18px 22px 24px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.18);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+main section:hover {
+    transform: translateY(-6px) scale(1.02) rotate(-0.5deg);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25);
 }
 
 main h3 {
@@ -81,25 +161,13 @@ main li {
     font-size: 20px;
 }
 
-main a {
-    color: black;
-}
-
-/* CARD HOVER (lift + grow) */
-main section {
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-main section:hover {
-    transform: translateY(-6px) scale(1.02) rotate(-0.5deg);
-    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25);
-}
 
 
 /* LINK HOVER (growing underline) */
 main a {
     position: relative;
     text-decoration: none;
+    color: black;
 }
 
 main a::after {
