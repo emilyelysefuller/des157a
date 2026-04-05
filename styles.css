@@ -70,7 +70,7 @@ body {
     animation: rustle 0.5s ease-in-out;
 }
 
-/*I would like to note that i did have an AI (ChatGBT) help me with the following keyframes, the rest (positioning) was a mix of trial and error and my own knowlege.*/ 
+/*I would like to note that i did have an AI (ChatGPT) help me with the following keyframes, the rest (positioning) was a mix of trial and error and my own knowlege.*/ 
 
 @keyframes rustle {
     0%   { transform: rotate(0deg) scale(1); }
