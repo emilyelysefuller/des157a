@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimentation 1</title>
+</head>
+<body>
+    <h1>Here is my first Experimentation</h1>
+    <h2>See the console for results</h2>
+
+    <script>
+        //This program is supposed to be a short, silly dialoge asking people their favorite special characters, printing a few in a triangle shape, and telling them to keep them safe for a mysterious reason. 
+
+        // this is a sequence  
+        var name = prompt("what can I shout to get your attention?");
+        console.log(`Hey ${name}!`);
+
+        var text = prompt("Do you like special characters? Type your favorite! !@#$ or %"); 
+        console.log(`cool! you like "${text}"`);
+
+        //this is a selection 
+        if(text === "!" || text ==="@" || text === "#"){
+            console.log("What a classic! Here's a few of them, keep them safe");
+        }else if(text === "$" || text === "%"){
+            console.log("What an intresting choice. Here's a few of them, keep them safe");
+        }else {
+            console.log(`uhm...that's not a special character! Here's a few of "${text}" anyways.`); 
+        }
+
+        //this is a loop 
+        for (let i = 1; i <= 7; i++) {
+        console.log(text.repeat(i));
+        }
+
+    </script>
+    
+</body>
+</html>
