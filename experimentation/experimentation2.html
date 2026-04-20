@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimentation 2</title>
+</head>
+<body>
+    <main>
+        <h1>Emily's Tiny Fortune Booth!</h1>
+        <div id="result">
+            ###
+        </div>
+    </main>
+
+    <script>
+        // This program asks the user a few questions and creates a random fortune,
+        /// then displays it on the page and changes the text color based on their chosen color.
+
+        //get the data 
+        function userInfo(){
+            var name = prompt("What is your name?"); 
+            var mood = prompt("What is your mood?"); 
+            var object = prompt("Please pick an object: Flower, Book, Star, or Oblate spheroid").toLowerCase(); //shoutout my boyfriend for that last suggestion- haha. 
+            var color = prompt("Pick the color you are most drawn to: Purple, Blue, Red, or Green");
+
+            console.log(`great! your name is ${name}, and youre feeling ${mood} and chose ${object} and ${color}.`);
+
+            return [name, mood, object, color];
+        }
+
+        var userData = userInfo(); //run it and save
+
+        //use data 
+        function fortune(userInfo){
+            var name = userInfo[0];
+            var mood = userInfo[1];
+            var object = userInfo[2];
+            var color = userInfo[3];
+
+            var endings = [
+                "A small surprise is heading your way.",
+                "Today is a good day to trust your instincts.",
+                "Something oddly lovely will cross your path soon.",
+                "You should be cautious around pigeons.",
+                "An opportunity is closer than you think."
+            ];
+
+            var randomEnding = endings[Math.floor(Math.random() * endings.length)];
+
+            var objectMessage;
+                if (object == "flower") {
+                    objectMessage = "Beauty and softness will guide your next decision.";
+                } 
+                else if (object == "book") {
+                    objectMessage = "Knowledge or a hidden truth is coming your way.";
+                } 
+                else if (object == "star") {
+                    objectMessage = "You may soon be the center of attention.";
+                } 
+                else {
+                    objectMessage = "Your strange choice suggests a mystery.";
+                }
+
+            var fortune = `${name}, because you are feeling ${mood}, chose the ${object}, and ${color} is now your lucky color, ${objectMessage} ${randomEnding}`;
+            
+            return fortune;
+        }
+
+        var message = fortune(userData);
+
+        document.querySelector('#result').innerHTML =  `<h2>Your Amazing Fortune<h2> <p>${message}<p>`; //added to the actual page w/ dom
+        document.querySelector('#result').style.color = userData[3]; //changing the color depending on their color answer 
+
+        console.log(message);   //run 
+
+
+
+    </script>
+    
+</body>
+</html>
