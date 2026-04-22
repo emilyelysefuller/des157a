@@ -118,7 +118,6 @@ body {
 /*main layout stuff */
 
 main {
-    display: flex;
     justify-content: center;
     margin-top: 5px;
 }
@@ -130,6 +129,8 @@ article {
     border-radius: 18px;
     padding: 32px 38px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12);
+
+    margin-bottom: 15px;
 }
 
 main h3 {
