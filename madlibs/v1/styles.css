@@ -1,0 +1,151 @@
+/* google fonts bleh*/
+.adlam-display-regular {
+  font-family: "ADLaM Display", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* styling start*/ 
+
+#page {
+    width: 1200px;
+    height: 750px;
+    margin: 0 auto;
+    background-color: #F4F3E2;
+    position: relative;
+}
+
+body {
+    background-color: #F4F3E2;
+    font-family: "ADLaM Display", system-ui, sans-serif;
+    color: #32823E;
+    margin: 0;
+}
+
+header {
+    width: 90%;
+    margin: 25px auto 0 auto;
+}
+
+h1 {
+    font-size: 100px;
+    margin: 0;
+}
+
+h2 {
+    color: #32823E;
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+main {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+#little-guy {
+    position: absolute;
+    left: 170px;
+    top: 250px;
+}
+
+#little-guy img {
+    display: block;
+    filter: drop-shadow(4px 8px 4px rgba(0, 0, 0, 0.25));
+    animation: plant-sway 3s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+/* I used AI to help me make this sway*/ 
+@keyframes plant-sway {
+    0% {
+        transform: rotate(-2deg);
+    }
+
+    50% {
+        transform: rotate(2deg);
+    }
+
+    100% {
+        transform: rotate(-2deg);
+    }
+}
+
+form {
+    width: 500px;
+    min-height: 200px;
+    background-color: #ffffff;
+    padding: 40px 45px 40px 45px;
+    margin-top: -10px;
+    margin-right: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    
+
+    column-count: 2;
+    column-gap: 30px;
+}
+
+label {
+    display: block;
+    color: #32823E;
+    font-size: 18px;
+    margin-bottom: 5px;
+
+    /* I had to look this up*/
+    break-after: avoid;
+}
+
+input,
+select {
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    background-color: #f0eedf;
+    padding: 10px 15px;
+    margin-bottom: 18px;
+    color: #32823E;
+    font-family: "ADLaM Display", system-ui, sans-serif;
+    font-size: 16px;
+
+    /* I had to look this up*/
+    break-inside: avoid;
+}
+
+input:focus,
+select:focus {
+    outline: 3px solid #8dbc8e;
+}
+
+input[type="submit"] {
+    position: absolute;
+    left: -450px;
+    top: 450px;
+    width: 420px;
+    padding: 14px;
+    background-color: #2f873e;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.25);
+}
+
+input[type="submit"]:hover {
+    background-color: #32823E;
+}
+
+#story {
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: -10px;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    padding: 40px 45px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
