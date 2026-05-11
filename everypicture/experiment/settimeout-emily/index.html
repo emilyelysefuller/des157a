@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Time Out - No Canvas Edition </title>
+    <style>
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #200080;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 1s;
+        }
+
+        .circle2 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #006b80;
+            transition: all 1s;
+            position: relative;
+            margin-left: 500px;
+            margin-top: 300px;
+            margin-bottom: 500px;
+            z-index: 10;
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .square {
+            width: 300px;
+            height: 300px;
+            background-color: #765fda;
+            transition: all 1s;
+        }
+
+        img{
+            max-width: 300px;
+        }
+
+        body {
+            background-color: #d2a5d2;
+            transition: all 1s;
+        }
+
+        #container {
+            width: 1000px;
+            height: 600px;
+            border: 2px solid pink;
+            position: relative;
+            margin: 50px auto;
+        }
+
+        img{
+            max-width: 300px;
+            transition: opacity 0.5s;
+        }
+
+        .hide-cat{
+            opacity: 0;
+        }
+
+        #overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0,0,0,0.7);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+            z-index: 5;
+        }
+
+        #overlay.show {
+            opacity: 1;
+        }
+
+        .zoom {
+            transform: scale(5); /* I used chat to help me come up with this*/ 
+            background-color: #d2a5d2;
+        }
+
+        .circle-text {
+            opacity: 0;
+            color: #200080;
+            font-size: 18px;
+            max-width: 250px;
+            transition: opacity 0.5s;
+        }
+
+        .circle2.zoom .circle-text {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trying SetTimeOut</h1>
+    <p>Here is a paragraph of something cool!</p>
+    <!-- <div class="circle"></div> -->
+
+    <img src="https://placecats.com/305/205" alt="kitty"> 
+
+    <div id="container">
+        <div class="circle"></div>
+    </div>
+
+    <div class="circle2">
+        <p class="circle-text">You found a hidden clue!</p>
+    </div>
+
+    <div id="overlay"></div>
+
+    <script>
+        const myP = document.querySelector('p'); 
+        const myDiv = document.querySelector('div')
+
+/*         setTimeout( function(){
+            myP.innerHTML = "Got ya! new paragraph"
+            //console.log('waited 5 whole seconds')
+        }, 3000); //after 5 seconds whatever is in this function is gonna run 
+
+        //now we did some styling for a div to make a circle and a square. We are gonna use them!
+
+        function animateShape(){
+            setTimeout(function(){
+                if(myDiv.classList.contains('circle')){
+                    myDiv.className = 'square';
+                } else {
+                    myDiv.className = 'circle';
+                }
+
+                animateShape();
+
+            }, 3000);
+        }
+
+        animateShape(); //dont forget to call the function  */
+
+
+        //that was cool, moving on get a pic of a cat! 
+
+        const catPhotos = ['https://placecats.com/305/205', 
+        'https://placecats.com/310/210', 
+        'https://placecats.com/315/215', 
+        'https://placecats.com/320/220', 
+        'https://placecats.com/325/225' ];
+
+        const myImg = document.querySelector('img'); 
+
+        function randomPhoto(){
+            setTimeout(function(){
+
+                const randNum = Math.floor(Math.random()*5);
+                myImg.src = catPhotos[randNum];
+
+                randomPhoto(); //this will make it change over and over again 
+
+            }, 1500);
+        }
+
+        randomPhoto(); 
+
+        myImg.src = catPhotos[1];
+
+       //cool! now lets do this color thing 
+
+       const colorList = ['#800080', '#0000ff', '#129741', '#c1da5f', '#da5fa3', '#765fda']
+       let counter = 0;
+       const myBodyTag = document.querySelector('body');
+
+       function colorChange (){
+        setTimeout(function(){
+            counter++;
+            if(counter == colorList.length){
+                counter = 0;
+            }
+            myBodyTag.style.backgroundColor = colorList[counter]
+
+            colorChange();
+        }, 1500)
+       }
+
+       /* colorChange(); */
+
+
+       //lets do a shape thing now, we changed the circle a bit bc ya- at the top 
+
+       const myCircle = document.querySelector('.circle');
+
+       function animateCircle (){
+        setTimeout(function(){
+            const topPos = Math.floor(Math.random()*550)
+            const leftPos = Math.floor(Math.random()*950)
+            myCircle.style.top = topPos + "px";
+            myCircle.style.left = leftPos + "px";
+
+            animateCircle();
+        }, 1500);
+       }
+
+       animateCircle();
+
+    //expriment over the weekend !!!!!
+
+    //#1 make the changing cat image dissapear on hover, so it changes but when you try to get "closer" it goes away. 
+
+    myImg.addEventListener('mouseover', function(){
+        myImg.classList.add('hide-cat');
+    });
+
+    myImg.addEventListener('mouseout', function(){
+        myImg.classList.remove('hide-cat');
+    });
+
+    //what about a circle when you click on it it gets bigger and takes over the screen like a pop up? I will wanna do this with an image for my Every Picture 
+    const circleTwo = document.querySelector('.circle2');
+    const overlay = document.querySelector('#overlay');
+
+    circleTwo.addEventListener('click', function(){
+        circleTwo.classList.toggle('zoom');
+        overlay.classList.toggle('show');
+    });
+
+    //well thats cool, but it doesnt fit the screen right, lemme try and fix it: I fixed it by editing my css. 
+
+    //now I wonder how i can add text so it could match what I wanna do in my project. Update: found a way to do it with more css. 
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
