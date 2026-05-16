@@ -1,0 +1,220 @@
+body {
+    margin: 0;
+    background: #0f0f0f;
+    color: #f7f1e8;
+    font-family: Georgia, serif;
+}
+
+header {
+    text-align: center;
+    padding: 20px 20px 10px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-shadow: 3px 3px 0 #3a3a3a;
+}
+
+header p {
+    max-width: 650px;
+    margin: 8px auto 0;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+main {
+    width: 1100px;
+    height: 600px;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+.ispy-scene {
+    border: 2px solid #f7f1e8;
+    padding: 10px;
+    background: #181818;
+    box-shadow: 8px 8px 0 #3a3a3a;
+    transform: rotate(-0.5deg); /*I looked up how to do this, and I think this is right...it does what I want it to do!*/ 
+}
+
+.ispy-scene img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 540px;
+    object-fit: contain;
+}
+
+.story-panel {
+    background: #181818;
+    border: 2px solid #f7f1e8;
+    padding: 18px;
+    box-shadow: 8px 8px 0 #3a3a3a;
+    transform: rotate(0.6deg);
+    overflow: hidden;
+}
+
+.story-panel h2 {
+    margin: 0 0 15px;
+    font-size: 2rem;
+    font-weight: normal;
+    border-bottom: 2px dashed #f7f1e8;
+    padding-bottom: 8px;
+}
+
+/* I looked this up mix of google & class stuff and AI (shoutout google ai- lol)*/
+
+.slider {
+    overflow: hidden;
+    margin-bottom: 18px;
+    display: flex;
+    width: max-content;
+}
+
+.reel {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+    margin-right: 12px;
+}
+
+.reel img {
+    width: 180px;
+    height: 135px;
+    object-fit: cover;
+    background: #000;
+    border: 2px solid #f7f1e8;
+    padding: 4px;
+    transform: rotate(-1deg);
+}
+
+.reel img:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+.story-panel p {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 0;
+    border-top: 2px dashed #f7f1e8;
+    padding-top: 14px;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #cfc7bb;
+}
+
+
+/*I aksed AI to help me know how to make a photoreel, and this was what it came up with, it is doing that weird jump thing when it goes to the end- I dont remember if this is fixed with doing it with JS. This is placeholder for now. 
+
+@keyframes photoreel {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+} */ 
+
+/* UPDATE- have now fixed it with JS, I still had AI help me come up with this, but it should work and I understand it much more now */ 
+
+.slider-a.animate-a {
+    animation: photoreel-a 18s linear infinite;
+}
+
+.slider-b.animate-b {
+    animation: photoreel-b 18s linear infinite;
+}
+
+.slider-c.animate-c {
+    animation: photoreel-c 18s linear infinite;
+}
+
+.slider-d.animate-d {
+    animation: photoreel-d 18s linear infinite;
+}
+
+.slider-e.animate-e {
+    animation: photoreel-e 18s linear infinite;
+}
+
+.slider-f.animate-f {
+    animation: photoreel-f 18s linear infinite;
+}
+
+@keyframes photoreel-a {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(var(--sliderwidth-a));
+    }
+}
+
+@keyframes photoreel-b {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(var(--sliderwidth-b));
+    }
+}
+
+@keyframes photoreel-c {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(var(--sliderwidth-c));
+    }
+}
+
+@keyframes photoreel-d {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(var(--sliderwidth-d));
+    }
+}
+
+@keyframes photoreel-e {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(var(--sliderwidth-e));
+    }
+}
+
+@keyframes photoreel-f {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(var(--sliderwidth-f));
+    }
+}
+
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}

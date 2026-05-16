@@ -67,6 +67,8 @@ main {
     padding-bottom: 8px;
 }
 
+/* I looked this up mix of google & class stuff and AI (shoutout google ai- lol)*/
+
 .reel {
     display: flex;
     gap: 12px;
@@ -87,7 +89,7 @@ main {
 
 .reel img:nth-child(even) {
     transform: rotate(1deg);
-} /* I looked this up*/
+}
 
 .story-panel p {
     font-size: 1.1rem;
