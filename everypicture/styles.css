@@ -35,19 +35,34 @@ main {
 }
 
 .ispy-scene {
+    position: relative;
     border: 2px solid #f7f1e8;
     padding: 10px;
     background: #181818;
     box-shadow: 8px 8px 0 #3a3a3a;
-    transform: rotate(-0.5deg); /*I looked up how to do this, and I think this is right...it does what I want it to do!*/ 
+    transform: rotate(-0.5deg);
 }
 
 .ispy-scene img {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 540px;
-    object-fit: contain;
+    margin-top: 60px;
+}
+
+/*After looking at the example we did in class with the cats, I realized mine would be a little more tricky, but I was able to find out with the helpf of AI i just had to add my padding and margins in the image together (60 +10) to get 70 for the top and now its perfect!*/ 
+.ispy-scene svg {
+    position: absolute;
+    left: 10px;
+    top: 70px;
+    width: calc(100% - 20px);
+    height: auto;
+    z-index: 2;
+}
+
+.ispy-scene svg g {
+    cursor: pointer;
+    pointer-events: all;
 }
 
 .story-panel {
@@ -111,20 +126,7 @@ footer {
     color: #cfc7bb;
 }
 
-
-/*I aksed AI to help me know how to make a photoreel, and this was what it came up with, it is doing that weird jump thing when it goes to the end- I dont remember if this is fixed with doing it with JS. This is placeholder for now. 
-
-@keyframes photoreel {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-} */ 
-
-/* UPDATE- have now fixed it with JS, I still had AI help me come up with this, but it should work and I understand it much more now */ 
+/* UPDATE- have now fixed (the reels) with JS, I still had AI help me come up with fixing this to work correctly, but it should work and I understand it *much* more now */ 
 
 .slider-a.animate-a {
     animation: photoreel-a 18s linear infinite;
@@ -210,11 +212,25 @@ footer {
     }
 }
 
-
+/* what will be later used to hide and reveal the story aspect */ 
 .hidden {
-    display: none;
+    visibility: hidden;
+    position: absolute;
+    pointer-events: none;
 }
 
 .visible {
-    display: block;
+    visibility: visible;
+    position: relative;
+    pointer-events: auto;
+}
+
+/* will be used to add/hide svg outline stuff*/ 
+.ispy-scene svg path {
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.ispy-scene svg .show-object path {
+    opacity: 1;
 }
